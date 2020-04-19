@@ -3,8 +3,7 @@
 
 2. Crear dos archivos dentro de una carpeta:
 
-	* "[Dockerfile](Dockerfile)"
-Dentro de este archivo añadiremos lo siguiente:
+	* [Dockerfile](Dockerfile): Dentro de este archivo añadiremos lo siguiente:
 ```cpp
 FROM python:3
 
@@ -15,7 +14,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 
-	* "[requirements.txt](requirements.txt)"
+	* [requirements.txt](requirements.txt):
 Dentro de este archivo añadiremos las librerias([PIP](https://pypi.org/project/pip/)) que necesataremos para después importar en nuestro proyecto, por ejemplo algunas podrian ser:
 ```cpp
 numpy
@@ -37,12 +36,12 @@ Una vez creada la imagen tendremos que arrancar un contenedor con ella y el scri
 	* Dentro de la ruta de la carpeta de nuestro codigo o aplicación:
 ```cpp
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp yourimagename python yourscript.py 
-
-##rm = eliminar container al cerrarlo
-##w = Directorio dentro del contenedor
-## $PWD = Directorio actual
-##v = Para enlazar directorios
 ```
+	* rm = eliminar container al cerrarlo
+	* w = Directorio dentro del contenedor
+	* $PWD = Directorio actual
+	* v = Para enlazar directorios
+
 
 4. Dentro de la carpeta [Codigos](Codigos) hay 3 codigos:
 	* [hello-world.py](Codigos/hello-world.py): Codigo simple para comprobar su correcto funcionamiento y la versión de Python.

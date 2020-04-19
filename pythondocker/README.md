@@ -4,6 +4,7 @@
 2. Crear dos archivos dentro de una carpeta:
 
 	* [Dockerfile](Dockerfile): Dentro de este archivo añadiremos lo siguiente:
+	
 ```cpp
 FROM python:3
 
@@ -15,7 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 ```
 
 	* [requirements.txt](requirements.txt):
-Dentro de este archivo añadiremos las librerias([PIP](https://pypi.org/project/pip/)) que necesataremos para después importar en nuestro proyecto, por ejemplo algunas podrian ser:
+Dentro de este archivo añadiremos los PythonPackage( [PIP](https://pypi.org/project/pip/)) que necesataremos para después importar las librerias en nuestro proyecto, por ejemplo algunas podrian ser:
+
 ```cpp
 numpy
 pandas
@@ -27,6 +29,7 @@ paho-mqtt
 3. En la consola de comandos de DockerToolbox:
 
 	* Dentro de la ruta de la carpeta donde haya los dos ficheros anteriores:
+
 ```cpp
 docker build -t yourimagename .
 ```
@@ -34,6 +37,7 @@ Este comando generarà una imagen de Docker personalizada con Python y las libre
 Una vez creada la imagen tendremos que arrancar un contenedor con ella y el script que queramos.
 
 	* Dentro de la ruta de la carpeta de nuestro codigo o aplicación:
+
 ```cpp
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp yourimagename python yourscript.py 
 ```
